@@ -41,6 +41,13 @@
     pulse.enable = true;
   };
 
+  services = {
+    asusd = {
+      enable = true;
+      enableUserService = true;
+    };
+  };
+
   users.users.toby = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ];
@@ -72,6 +79,13 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/toby/dotfiles/";
   };
+
+  fileSystems."/mnt/ssd" = {
+    device = "/dev/disk/by-uuid/ff76aea3-64c4-423d-98ef-8905ccfadbd4";
+    fsType = "ext4";
+    options = [ "defaults" "noatime" ];
+  };
+
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "25.05";
