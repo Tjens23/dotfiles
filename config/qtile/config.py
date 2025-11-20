@@ -54,6 +54,8 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons"), desc='Run Launcher'),
+    Key([mod, "shift"], "s", lazy.spawn("systemctl poweroff"), desc="Shutdown system"),
+    Key([mod], "x", lazy.spawn("i3lock -c 1a1b26"), desc="Lock screen"),
     Key(
         ["control"], 
         "F12",

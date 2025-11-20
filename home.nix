@@ -46,11 +46,13 @@ in
     configs;
 
   home.packages = with pkgs; [
+    xclip
     obs-studio
     kubectl
     twingate
     go
     asusctl
+    i3lock-color
     jetbrains-toolbox
     dysk
     jq
