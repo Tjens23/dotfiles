@@ -49,6 +49,8 @@ in
     xclip
     obs-studio
     kubectl
+    alvr
+    xf86_input_wacom
     twingate
     go
     asusctl
