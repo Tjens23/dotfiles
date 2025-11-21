@@ -53,13 +53,17 @@ in
     alvr
     xf86_input_wacom
     twingate
+    tmux
+    google-cloud-sdk
     go
     asusctl
+    unzip
     i3lock-color
     jetbrains-toolbox
     dysk
     jq
     neovim
+    gemini-cli
     vesktop
     ripgrep
     nil
