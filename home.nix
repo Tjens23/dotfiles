@@ -49,6 +49,7 @@ in
     xclip
     obs-studio
     kubectl
+    xournalpp
     alvr
     xf86_input_wacom
     twingate
