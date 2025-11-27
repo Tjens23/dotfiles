@@ -50,10 +50,11 @@
 
   programs.wireshark.enable = true;
   programs.wireshark.package = pkgs.wireshark;
+  programs.adb.enable = true;
 
   users.users.toby = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "wireshark" ];
+    extraGroups = [ "wheel" "docker" "wireshark" "adbusers" ];
     packages = with pkgs; [
       tree
     ];

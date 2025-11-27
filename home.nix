@@ -67,6 +67,9 @@ in
     jq
     vscode
     neovim
+    android-studio
+    dig
+    iperf
     gemini-cli
     fastfetch
     vlc
