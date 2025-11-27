@@ -48,15 +48,18 @@
     };
   };
 
+  programs.wireshark.enable = true;
+  programs.wireshark.package = pkgs.wireshark;
+
   users.users.toby = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" "docker" "wireshark" ];
     packages = with pkgs; [
       tree
     ];
   };
-  programs.firefox.enable = true;
 
+  programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
     vim
     git

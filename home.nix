@@ -51,19 +51,26 @@ in
     kubectl
     xournalpp
     alvr
+    tshark
     xf86_input_wacom
     twingate
+    lua51Packages.lgi
     tmux
     google-cloud-sdk
     go
+    cargo
     asusctl
     unzip
     i3lock-color
     jetbrains-toolbox
     dysk
     jq
+    vscode
     neovim
     gemini-cli
+    fastfetch
+    vlc
+    htop
     vesktop
     ripgrep
     nil
