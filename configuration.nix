@@ -44,6 +44,12 @@
     9943
     9944
   ];
+
+
+  networking.firewall.allowedTCPPorts = [
+    9943
+    9944
+  ];
   programs.alvr.enable = true;
   programs.alvr.openFirewall = true;
 
