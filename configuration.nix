@@ -39,6 +39,16 @@
     gamescopeSession.enable = true;
 
   };
+  
+  networking.firewall.allowedUDPPorts = [
+    9943
+    9944
+  ];
+  programs.alvr.enable = true;
+  programs.alvr.openFirewall = true;
+
+  
+
   # NVIDIA configuration
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.beta;
@@ -55,7 +65,6 @@
   };
 
 
-  programs.alvr.openFirewall = true;
   programs.dconf.enable = true;
   services.picom.enable = true;
   services.xserver.xkb.layout = "dk";

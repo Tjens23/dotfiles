@@ -47,6 +47,7 @@ in
 
   services.easyeffects.enable = true;
   home.packages = with pkgs; [
+    terraform
     postgresql_17_jit
     easyeffects
     obs-studio
