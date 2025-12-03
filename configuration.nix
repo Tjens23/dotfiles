@@ -27,16 +27,20 @@
     videoDrivers = [ "nvidia" ];
 
     displayManager.sessionCommands = ''
-      xrandr --output HDMI-1 --mode 1920x1080 --rate 144 --primary
       xwallpaper --zoom ~/dotfiles/walls/wall1.png
     '';
   };
 
+
+  services.xserver.displayManager.setupCommands = ''
+    ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --mode 1920x1080 --rate 144 --primary --right-of HDMI-0 --output HDMI-0 --mode 1920x1080 --rate 75
+  '';
+
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
+    #remotePlay.openFirewall = true;
+    #dedicatedServer.openFirewall = true;
+    #gamescopeSession.enable = true;
 
   };
 
@@ -52,8 +56,6 @@
   ];
   programs.alvr.enable = true;
   programs.alvr.openFirewall = true;
-
-  
 
   # NVIDIA configuration
   hardware.nvidia = {
