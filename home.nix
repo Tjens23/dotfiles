@@ -74,6 +74,7 @@ in
     protonplus
     unzip
     i3lock-color
+    kdePackages.dolphin
     jetbrains-toolbox
     dysk
     jq
