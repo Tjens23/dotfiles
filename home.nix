@@ -26,16 +26,14 @@ in
       init.defaultBranch = "main";
     };
   };
-  home.stateVersion = "25.05";
-  programs.bash = {
+  home.stateVersion = "25.11";
+
+  programs.fish = {
     enable = true;
     shellAliases = {
       btw = "echo i use nixos-btw";
-      nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#sdu";
+      nrs = "nh os switch";
     };
-    initExtra = ''
-      	  export PS1="\[\e[38;5;75m\]\u@\h \[\e[38;5;113m\]\w \[\e[38;5;189m\]\$ \[\e[0m\]"
-      	'';
   };
 
   xdg.configFile = builtins.mapAttrs
@@ -59,22 +57,38 @@ in
     google-cloud-sdk
     go
     cargo
+    adoptopenjdk-icedtea-web
+    woeusb
+    forgejo-runner
+    speedtest-cli
     asusctl
     unzip
     i3lock-color
     jetbrains-toolbox
     dysk
     jq
+    gns3-gui
+    kdePackages.dolphin
+    gns3-server
+    usbutils
+    kdePackages.okular
+    miktex
     vscode
+    wine64
     neovim
+    jdk21
+    maven
+    pnpm
     android-studio
     dig
     iperf
     gemini-cli
+    postgresql
     fastfetch
     vlc
     htop
     vesktop
+    fd
     ripgrep
     nil
     nixpkgs-fmt

@@ -33,6 +33,30 @@
     '';
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        # Shows battery charge of connected devices on supported
+        # Bluetooth adapters. Defaults to 'false'.
+        Experimental = true;
+        # When enabled other devices can connect faster to us, however
+        # the tradeoff is increased power consumption. Defaults to
+        # 'false'.
+        FastConnectable = true;
+      };
+      Policy = {
+        # Enable all controllers when they are found. This includes
+        # adapters present on start as well as adapters that are plugged
+        # in later on. Defaults to 'true'.
+        AutoEnable = true;
+      };
+    };
+  };
+
+  services.gns3-server.enable = true;
+  services.blueman.enable = true;
   services.picom.enable = true;
   services.xserver.xkb.layout = "dk";
 
@@ -51,13 +75,18 @@
   programs.wireshark.enable = true;
   programs.wireshark.package = pkgs.wireshark;
   programs.adb.enable = true;
-
+  programs.fish.enable = true;
   users.users.toby = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "wireshark" "adbusers" ];
+    shell = pkgs.fish;
+    extraGroups = [ "kvm" "libvirt" "wheel" "docker" "wireshark" "adbusers" ];
     packages = with pkgs; [
       tree
     ];
+  };
+
+  services.postgresql = {
+    enable = true;
   };
 
   programs.firefox.enable = true;
@@ -92,7 +121,7 @@
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 
 }
 
