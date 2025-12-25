@@ -33,6 +33,33 @@
     '';
   };
 
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = true; # RTX 4090 works well with open kernel module
+    nvidiaSettings = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
+  };
+
+  # PRIME for Intel + NVIDIA hybrid graphics
+  hardware.nvidia.prime = {
+    sync.enable = true; # Always use NVIDIA GPU
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+
+  services.ollama = {
+    enable = true;
+  };
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -55,7 +82,11 @@
     };
   };
 
-  services.gns3-server.enable = true;
+  services.gns3-server.settings = {
+    enable = true;
+    host = "127.0.0.1";
+    port = 3080;
+  };
   services.blueman.enable = true;
   services.picom.enable = true;
   services.xserver.xkb.layout = "dk";
@@ -102,7 +133,10 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    enableNvidia = true; # This is the key line!
+  };
 
   services.twingate.enable = true;
 

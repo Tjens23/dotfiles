@@ -67,6 +67,7 @@ in
     jetbrains-toolbox
     dysk
     jq
+    ollama
     gns3-gui
     kdePackages.dolphin
     gns3-server
