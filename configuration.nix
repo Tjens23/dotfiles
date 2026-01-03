@@ -42,16 +42,19 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    open = true; # RTX 4090 works well with open kernel module
+    open = false; # Proprietary driver is most stable for RTX 4090
     nvidiaSettings = true;
-    powerManagement.enable = true;
+    powerManagement.enable = false; # Disable for maximum stability
     powerManagement.finegrained = false;
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # PRIME for Intel + NVIDIA hybrid graphics
+  # PRIME offload mode - most stable, uses Intel by default
   hardware.nvidia.prime = {
-    sync.enable = true; # Always use NVIDIA GPU
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
   };

@@ -67,6 +67,7 @@ in
     jetbrains-toolbox
     dysk
     jq
+    gh
     flameshot
     lsof
     spotify
