@@ -67,6 +67,10 @@ in
     jetbrains-toolbox
     dysk
     jq
+    flameshot
+    lsof
+    spotify
+    net-tools
     ollama
     gns3-gui
     kdePackages.dolphin
