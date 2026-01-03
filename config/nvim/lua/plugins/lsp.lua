@@ -105,7 +105,6 @@ return {
                 "lua_ls",
                 -- Python
                 "pyright",
-                "ruff_lsp",
                 -- JavaScript/TypeScript/React
                 "ts_ls",
                 "eslint",

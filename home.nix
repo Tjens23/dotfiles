@@ -101,6 +101,7 @@ in
     gcc
     rofi
     xwallpaper
+    gnumake
 
     # LSP Servers and Language Tools
     # Lua

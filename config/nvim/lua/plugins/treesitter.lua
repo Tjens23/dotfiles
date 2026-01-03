@@ -40,7 +40,6 @@ return {
                     "javascript",
                     "typescript",
                     "tsx",
-                    "jsx",
                     -- Go
                     "go",
                     "gomod",
