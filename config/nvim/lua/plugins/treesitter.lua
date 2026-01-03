@@ -29,26 +29,50 @@ return {
                 autotag = { enable = true },
                 -- ensure these language parsers are installed
                 ensure_installed = {
-                    "json",
-                    "python",
-                    "javascript",
-                    "query",
-                    "typescript",
-                    "tsx",
-                    "php",
-                    "yaml",
-                    "html",
-                    "css",
-                    "markdown",
-                    "markdown_inline",
-                    "bash",
+                    -- Lua & Vim
                     "lua",
                     "vim",
                     "vimdoc",
+                    "query",
+                    -- Python
+                    "python",
+                    -- JavaScript/TypeScript/React
+                    "javascript",
+                    "typescript",
+                    "tsx",
+                    "jsx",
+                    -- Go
+                    "go",
+                    "gomod",
+                    "gosum",
+                    "gowork",
+                    -- Rust
+                    "rust",
+                    "toml",
+                    -- C/C++
                     "c",
+                    "cpp",
+                    "cmake",
+                    -- Java
+                    "java",
+                    -- Web/Frontend
+                    "html",
+                    "css",
+                    "scss",
+                    "json",
+                    "yaml",
+                    "astro",
+                    "vue",
+                    "svelte",
+                    -- Other
+                    "markdown",
+                    "markdown_inline",
+                    "bash",
                     "dockerfile",
                     "gitignore",
-                    "astro",
+                    "sql",
+                    "graphql",
+                    "regex",
                 },
                 -- auto install above language parsers
                 auto_install = false,

@@ -57,9 +57,6 @@ in
     google-cloud-sdk
     go
     cargo
-    adoptopenjdk-icedtea-web
-    woeusb
-    forgejo-runner
     speedtest-cli
     asusctl
     unzip
@@ -104,6 +101,47 @@ in
     gcc
     rofi
     xwallpaper
+
+    # LSP Servers and Language Tools
+    # Lua
+    lua-language-server
+    stylua
+
+    # Python
+    pyright
+    python312Packages.black
+    python312Packages.isort
+    python312Packages.pylint
+    ruff
+
+    # JavaScript/TypeScript
+    nodePackages.typescript-language-server
+    nodePackages.eslint
+    nodePackages.prettier
+    vscode-langservers-extracted  # html, css, json, eslint
+
+    # Go
+    gopls
+    gofumpt
+    gotools
+    golangci-lint
+
+    # Rust
+    rust-analyzer
+    rustfmt
+    clippy
+
+    # C/C++
+    clang-tools  # includes clangd, clang-format, clang-tidy
+    cmake-language-server
+    cpplint
+
+    # Java
+    jdt-language-server
+    google-java-format
+
+    # Additional formatters
+    nodePackages.prettier
   ];
 
 }
