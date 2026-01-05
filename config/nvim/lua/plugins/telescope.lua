@@ -3,6 +3,7 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        'nvim-telescope/telescope-ui-select.nvim',
     },
     config = function()
         local actions = require('telescope.actions')
@@ -30,12 +31,18 @@ return {
                     override_generic_sorter = true,
                     override_file_sorter = true,
                     case_mode = "smart_case",
+                },
+                ["ui-select"] = {
+                    require("telescope.themes").get_dropdown({
+                        -- You can customize the dropdown appearance here
+                    })
                 }
             }
         })
 
-        -- Load fzf extension
+        -- Load extensions
         require('telescope').load_extension('fzf')
+        require('telescope').load_extension('ui-select')
 
         local builtin = require('telescope.builtin')
         

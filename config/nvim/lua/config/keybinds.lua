@@ -57,6 +57,9 @@ vim.keymap.set("n", "<leader>cn", ":cnext<CR>zz")
 vim.keymap.set("n", "<leader>cp", ":cprev<CR>zz")
 vim.keymap.set("n", "<leader>li", ":checkhealth vim.lsp<CR>", { desc = "LSP Info" })
 
+vim.keymap.set({ 'n', 'v' }, '<leader>]', ':Gen<CR>')
+vim.keymap.set('v', '<leader>g', ':Gen Chat<CR>')
+
 -- source file
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
