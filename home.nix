@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-alien, ... }:
 
 let
   dotfiles = "${config.home.homeDirectory}/dotfiles/config";
@@ -22,107 +22,107 @@ in
     enable = true;
     userName = "tjens23";
     userEmail = "tjens23@student.sdu.dk";
-    
+
     extraConfig = {
       init.defaultBranch = "main";
-      
+
       # Better diffs
       diff.algorithm = "histogram";
       diff.colorMoved = "default";
-      
+
       # Rebase by default on pull
       pull.rebase = true;
-      
+
       # Auto-correct typos
       help.autocorrect = "immediate";
-      
+
       # Better merge conflict style
       merge.conflictstyle = "zdiff3";
-      
+
       # Prune on fetch
       fetch.prune = true;
       fetch.prunetags = true;
-      
+
       # Rerere (reuse recorded resolution)
       rerere.enabled = true;
-      
+
       # Better log output
       log.date = "relative";
-      
+
       # Push current branch by default
       push.default = "current";
       push.autoSetupRemote = true;
-      
+
       # Colored output
       color.ui = "auto";
-      
+
       # Better status
       status.showUntrackedFiles = "all";
       status.submoduleSummary = true;
-      
+
       # Commit signing (optional - uncomment if you use GPG)
       # commit.gpgsign = true;
       # tag.gpgsign = true;
     };
-    
+
     aliases = {
       # Short status
       s = "status -sb";
-      
+
       # Better log
       l = "log --oneline --graph --decorate";
       ll = "log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-      
+
       # Amend last commit
       amend = "commit --amend --no-edit";
-      
+
       # Quick commit
       c = "commit -m";
       ca = "commit -am";
-      
+
       # Better diff
       d = "diff";
       ds = "diff --staged";
-      
+
       # Branches
       b = "branch";
       ba = "branch -a";
       bd = "branch -d";
-      
+
       # Checkout
       co = "checkout";
       cob = "checkout -b";
-      
+
       # Stash with message
       ss = "stash save";
       sl = "stash list";
       sp = "stash pop";
-      
+
       # Undo last commit (keep changes)
       undo = "reset HEAD~1 --soft";
-      
+
       # Force push with lease (safer)
       pushf = "push --force-with-lease";
-      
+
       # Clean up merged branches
       cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d";
-      
+
       # Show what changed in last commit
       last = "log -1 HEAD --stat";
-      
+
       # Interactive rebase
       rb = "rebase -i";
-      
+
       # Quick pull and push
       pl = "pull";
       ps = "push";
     };
-    
+
     ignores = [
       # OS files
       ".DS_Store"
       "Thumbs.db"
-      
+
       # Editor files
       ".vscode/"
       ".idea/"
@@ -130,14 +130,14 @@ in
       "*.swo"
       "*~"
       ".nvimlog"
-      
+
       # Build artifacts
       "node_modules/"
       "dist/"
       "build/"
       "target/"
       "*.log"
-      
+
       # Environment files
       ".env"
       ".env.local"
@@ -161,6 +161,7 @@ in
     configs;
 
   home.packages = with pkgs; [
+    nix-alien.packages.x86_64-linux.default
     xclip
     obs-studio
     kubectl
@@ -195,7 +196,9 @@ in
     miktex
     vscode
     wine64
+    lmstudio
     neovim
+    discord
     jdk21
     maven
     pnpm
@@ -207,7 +210,6 @@ in
     fastfetch
     vlc
     htop
-    vesktop
     fd
     ripgrep
     nil
@@ -236,7 +238,7 @@ in
     nodePackages.typescript-language-server
     nodePackages.eslint
     nodePackages.prettier
-    vscode-langservers-extracted  # html, css, json, eslint
+    vscode-langservers-extracted # html, css, json, eslint
 
     # Go
     gopls
@@ -250,7 +252,7 @@ in
     clippy
 
     # C/C++
-    clang-tools  # includes clangd, clang-format, clang-tidy
+    clang-tools # includes clangd, clang-format, clang-tidy
     cmake-language-server
     cpplint
 
